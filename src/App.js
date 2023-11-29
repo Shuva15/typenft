@@ -5,10 +5,11 @@ import useCurrentUser from './lib/utils';
 
 function App() {
   const { addr, loggedIn } = useCurrentUser();
+  console.log(addr)
   return (
     <div className="App">
       {loggedIn ? <button onClick={unauthenticate}>log out</button> : <button onClick={authenticate}>connect</button>}
-      {loggedIn && <MintNft />}
+      {loggedIn && <MintNft addr={addr} />}
     </div>
   );
 }
