@@ -30,7 +30,7 @@ const MintNft = () => {
 
   const handleMint = () => {
     setScriptResult([]);
-    query({ inputs: textInput }).then(async (response) => {
+    query({ inputs: `pixel art, ${textInput}, simple, flat colors` }).then(async (response) => {
       const transactionId = await fcl.send([
         fcl.transaction(createNft),
         fcl.args([
@@ -49,14 +49,14 @@ const MintNft = () => {
   };
 
   const displayNft = async () => {
-    const result = await fcl.send([
-      fcl.script(getNft),
-      fcl.args([
-        fcl.arg(addr, types.Address)
-      ])
-    ]).then(fcl.decode);
+    // const result = await fcl.send([
+    //   fcl.script(getNft),
+    //   fcl.args([
+    //     fcl.arg(addr, types.Address)
+    //   ])
+    // ]).then(fcl.decode);
 
-    console.log(result);
+    // console.log(result);
       setScriptResult([1]);
   }
 
