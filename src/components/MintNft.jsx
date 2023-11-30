@@ -10,7 +10,7 @@ const MintNft = () => {
   const { addr, loggedIn } = useCurrentUser();
 
   const [nft, setNft ] = useState(null)
-    const [scriptResult, setScriptResult] = useState([]);
+  const [scriptResult, setScriptResult] = useState([]);
   const [textInput, setTextInput] = useState("santa claus");
 
   async function query(data) {
@@ -18,7 +18,7 @@ const MintNft = () => {
       "https://api-inference.huggingface.co/models/nerijs/pixel-art-xl",
       {
         headers: {
-          Authorization: "Bearer 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",
+          Authorization: "Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         },
         method: "POST",
         body: JSON.stringify(data),
@@ -29,9 +29,8 @@ const MintNft = () => {
   }
 
   const handleMint = () => {
+    setScriptResult([]);
     query({ inputs: textInput }).then(async (response) => {
-      
-
       const transactionId = await fcl.send([
         fcl.transaction(createNft),
         fcl.args([
@@ -45,7 +44,6 @@ const MintNft = () => {
       ]).then(fcl.decode);
 
       console.log(transactionId);
-      console.log(response)
       setNft(URL.createObjectURL(response));
     });
   };
@@ -63,33 +61,38 @@ const MintNft = () => {
   }
 
   return (
-    <div className="input-container">
-      {!loggedIn && (
-        <div className="button-container">
-          <button onClick={fcl.authenticate}>Connect</button>
-        </div>
-      )}
-
-      {loggedIn && (
-        <div>
+    <div className="container">
+      <div className="nav-bar">
+        {loggedIn ? (
           <div className="button-container">
             <button onClick={fcl.unauthenticate}>Logout</button>
           </div>
-          <input
-            type="text"
-            onChange={(e) => setTextInput(e.target.value)}
-            placeholder="Enter your text"
-          />
-          <button onClick={handleMint}>Mint NFT</button>
-          <button onClick={displayNft}>See NFT</button>
-
-          <div className="nft-container">
-            {scriptResult.length !== 0 ? (
-              <img src={nft} alt="Generated NFT" />
-            ) : null}
+        ) : (
+          <div className="button-container">
+            <button onClick={fcl.authenticate}>Connect</button>
           </div>
-        </div>
-      )}
+        )}
+      </div>
+      <div className="body">
+        {loggedIn && (
+          <div className="body-container">
+            <div className="input-container">
+              <input
+                type="text"
+                onChange={(e) => setTextInput(e.target.value)}
+                placeholder="Type your NFT"
+              />
+              <button onClick={handleMint}>Mint NFT</button>
+              <button onClick={displayNft}>See NFT</button>
+            </div>
+            <div className="nft-container">
+              {scriptResult.length !== 0 ? (
+                <img src={nft} alt="Generated NFT" />
+              ) : null}
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
