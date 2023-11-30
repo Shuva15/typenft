@@ -69,6 +69,10 @@ body {
   font-size: 16px;
 }
 
+.input-container input:focus {
+  outline: none;
+}
+
 .input-container button {
   width: 170px;
   align-self: center;
@@ -95,4 +99,29 @@ body {
 .nft-container img {
   max-width: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 940px) {
+  .input-container{
+    width: 50%;
+  }
+  .input-container button {
+    width: 50%;
+  }
+  .nft-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .input-container{
+    width: 70%;
+  }
+  .nft-container {
+    width: 70%;
+  }
+  .input-container input {
+    width: 43%;
+    align-self: center;
+  }
 }
