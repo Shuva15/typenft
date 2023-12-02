@@ -25,7 +25,7 @@ To begin with TypeNFT, follow these simple steps:
 1. Clone the repository: `git clone https://github.com/Shuva15/typenft.git`
 2. Navigate to the project directory: `cd typenft`
 3. Install dependencies: `npm install`
-4. In the "src/components/MintNft.jsx" file put your Hugging Face User Access Tokens at this [Authorization: "Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"] place
+4. Create a .env file in the root directory and include a veriable `REACT_APP_ACCESS_TOKEN`, put your hugging face access token there
 5. Start the development server: `npm start`
 
 ## Contribution Guidelines
