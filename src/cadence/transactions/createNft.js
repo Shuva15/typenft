@@ -1,5 +1,5 @@
 export const createNft = `
-import HolidaysNFT from 0xe6fb7d5bae034bb8
+import HolidaysNFT from 0x40582f87fa3d66cb
 
 transaction(image: String, name: String) {
 

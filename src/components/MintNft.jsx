@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as fcl from "@onflow/fcl";
 import * as types from "@onflow/types";
 import { createNft } from "../cadence/transactions/createNft";
-import { getNft } from "../cadence/scripts/getNft";
+// import { getNft } from "../cadence/scripts/getNft";
 import useCurrentUser from '../lib/utils';
 
 
@@ -18,7 +18,7 @@ const MintNft = () => {
       "https://api-inference.huggingface.co/models/nerijs/pixel-art-xl",
       {
         headers: {
-          Authorization: "Bearer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`,
         },
         method: "POST",
         body: JSON.stringify(data),
@@ -65,7 +65,7 @@ const MintNft = () => {
       <div className="nav-bar">
         {loggedIn ? (
           <div className="button-container">
-            <button onClick={fcl.unauthenticate}>Logout</button>
+            <button onClick={fcl.unauthenticate && console.log(addr)}>Logout</button>
           </div>
         ) : (
           <div className="button-container">

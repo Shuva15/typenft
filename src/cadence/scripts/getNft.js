@@ -1,6 +1,5 @@
 export const getNft = `
-import HolidaysNFT from 0xe6fb7d5bae034bb8
-
+import HolidaysNFT from 0x40582f87fa3d66cb
 pub fun main(account: Address): [String] {
 
   let nftCollection = getAccount(account).getCapability(/public/HolidaysNFTCollection)
