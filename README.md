@@ -28,6 +28,11 @@ To begin with TypeNFT, follow these simple steps:
 4. Create a .env file in the root directory and include a veriable `REACT_APP_ACCESS_TOKEN`, put your hugging face access token there
 5. Start the development server: `npm start`
 
+## ScreenShots
+
+![TypeNFT1](https://github.com/user-attachments/assets/8415d54d-23c1-44a5-adef-491cff2f58d9)
+![TypeNFT2](https://github.com/user-attachments/assets/0cd88be8-98f2-4db4-9559-765709a737a9)
+
 ## Contribution Guidelines
 
 If you wish to contribute to TypeNFT, please adhere to these guidelines:
